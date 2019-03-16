@@ -19,6 +19,15 @@ server.route({
   method: 'POST',
   path: '/',
   handler: require('./handlers/upload'),
+  options: {
+    validate: require('./validators/upload'),
+    payload: {
+      output: 'stream',
+      parse: true,
+      allow: 'multipart/form-data',
+      maxBytes: 1000 * 1000 * 1500, // 15 MB
+    },
+  },
 });
 
 const main = async () => {
