@@ -40,4 +40,8 @@ process.on('unhandledRejection', err => {
   process.exit(1);
 });
 
+process.on('SIGINT', () => {
+  process.exit(0);
+});
+
 main();
