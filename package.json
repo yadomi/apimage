@@ -1,0 +1,24 @@
+{
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "build": "$(yarn bin)/tsc",
+    "start": "node dist/",
+    "start:watch": "$(yarn bin)/nodemon dist/"
+  },
+  "devDependencies": {
+    "@types/hapi": "^18.0.1",
+    "@types/node": "^11.11.3",
+    "@types/ramda": "^0.26.3",
+    "@types/sharp": "^0.21.3",
+    "nodemon": "^1.18.10",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "boom": "^7.3.0",
+    "file-type": "^10.9.0",
+    "hapi": "^18.1.0",
+    "joi": "^14.3.1",
+    "ramda": "^0.26.1",
+    "sharp": "^0.21.3"
+  }
+}
