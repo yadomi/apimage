@@ -6,7 +6,6 @@ import uuidv4 from 'uuid/v4';
 import fileType from 'file-type';
 import Boom from 'boom';
 
-// @ts-ignore
 import Toys from 'toys';
 import { Readable } from 'stream';
 
