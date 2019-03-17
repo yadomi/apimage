@@ -2,6 +2,7 @@
   "license": "GPL-3.0-or-later",
   "scripts": {
     "build": "$(yarn bin)/tsc",
+    "build:docker": "docker build -t yadomi/apimage:latest .",
     "start": "node dist/",
     "start:watch": "$(yarn bin)/nodemon dist/"
   },
