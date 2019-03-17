@@ -1,5 +1,4 @@
 import { Request, ResponseToolkit } from 'hapi';
-import { tmpdir } from 'os';
 import { createWriteStream } from 'fs';
 import { join } from 'path';
 import uuidv4 from 'uuid/v4';
@@ -24,9 +23,8 @@ module.exports = async (request: Request, h: ResponseToolkit) => {
     throw Boom.unsupportedMediaType();
   }
 
-  const directory = tmpdir();
   const uuid = uuidv4();
-  const filepath = join(directory, uuid);
+  const filepath = join('/tmp', uuid);
 
   const writeStream = createWriteStream(filepath);
   readStream.pipe(writeStream);
