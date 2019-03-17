@@ -22,8 +22,12 @@ const keysMap = {
 };
 
 const schema = Joi.object({
-  height: Joi.number().min(1),
-  width: Joi.number().min(1),
+  height: Joi.number()
+    .min(1)
+    .max(2000),
+  width: Joi.number()
+    .min(1)
+    .max(2000),
   x: Joi.number()
     .positive()
     .allow(0),
