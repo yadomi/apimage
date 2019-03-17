@@ -8,7 +8,7 @@ const server = Hapi.server({
 
 server.route({
   method: 'GET',
-  path: '/{query}/{id}',
+  path: '/{query}/{uuid}',
   handler: require('./handlers/read'),
   options: {
     validate: require('./validators/read'),

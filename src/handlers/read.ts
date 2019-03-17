@@ -3,20 +3,35 @@ import { Request, ResponseToolkit } from 'hapi';
 import Boom from 'boom';
 import Sharp from 'sharp';
 import { has } from 'ramda';
+import { join } from 'path';
 
 import type from 'file-type';
-import { readFileSync } from 'fs';
-import { resolve } from 'path';
+import { createReadStream } from 'fs';
+import Toys from 'toys';
 
 module.exports = async (request: Request, h: ResponseToolkit) => {
   const { query } = request.params;
-  const [id, extension = 'png'] = request.params.id.split('.');
-  const validated = validate(parse(query, extension));
+  const [uuid, extension = 'png'] = request.params.uuid.split('.');
 
-  if (validated.error) throw Boom.badRequest(validated.error.message);
+  const stream = createReadStream(join('/tmp', uuid));
+  let buffer: Buffer;
+  try {
+    const data: any = [];
+    stream.on('data', chunk => data.push(chunk));
+
+    await Toys.stream(stream);
+    buffer = Buffer.concat(data);
+  } catch (err) {
+    if (err.code === 'ENOENT') {
+      throw Boom.notFound();
+    }
+    throw Boom.badData();
+  }
+
+  const validated = validate(parse(query, extension));
+  if (validated.error) throw Boom.badRequest(validated.error.message.replace(/\[|\]/g, '').replace(/"/g, '`'));
 
   const transformations = validated.value;
-  const buffer = readFileSync(resolve('./src/handlers/lenna.png'));
 
   if (has('source', transformations)) {
     const mimetype = type(buffer);
