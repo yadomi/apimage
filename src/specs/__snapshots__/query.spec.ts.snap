@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should convert string to number for specific properties 1`] = `
+Object {
+  "extension": "jpeg",
+  "width": 100,
+}
+`;
+
+exports[`should parse query string to object 1`] = `
+Object {
+  "extension": "jpeg",
+  "fit": "cover",
+  "height": "200",
+  "position": "west",
+  "quality": "100",
+  "width": "100",
+}
+`;

@@ -1,6 +1,6 @@
 const Hapi = require('hapi');
 
-const server = Hapi.server({
+export const server = Hapi.server({
   port: 3000,
   host: '0.0.0.0',
   debug: { request: ['error'] },
