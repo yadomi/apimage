@@ -6,6 +6,10 @@
     "start": "node dist/",
     "start:watch": "$(yarn bin)/nodemon dist/"
   },
+  "engines": {
+    "node": "11.12.0",
+    "npm": "6.4.1"
+  },
   "version": "1.0.0",
   "devDependencies": {
     "@types/hapi": "^18.0.1",
