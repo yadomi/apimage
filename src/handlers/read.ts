@@ -3,24 +3,17 @@ import { Request, ResponseToolkit } from 'hapi';
 import Boom from 'boom';
 import Sharp from 'sharp';
 import { has } from 'ramda';
-import { join } from 'path';
 
 import type from 'file-type';
-import { createReadStream } from 'fs';
-import Toys from 'toys';
+import IO from '../helpers/io';
 
 module.exports = async (request: Request, h: ResponseToolkit) => {
   const { query } = request.params;
   const [uuid, extension = 'png'] = request.params.uuid.split('.');
 
-  const stream = createReadStream(join('/tmp', uuid));
   let buffer: Buffer;
   try {
-    const data: any = [];
-    stream.on('data', chunk => data.push(chunk));
-
-    await Toys.stream(stream);
-    buffer = Buffer.concat(data);
+    buffer = await IO.read(uuid);
   } catch (err) {
     if (err.code === 'ENOENT') {
       throw Boom.notFound();

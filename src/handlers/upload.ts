@@ -1,12 +1,10 @@
 import { Request, ResponseToolkit } from 'hapi';
-import { createWriteStream } from 'fs';
-import { join } from 'path';
 import uuidv4 from 'uuid/v4';
 import fileType from 'file-type';
 import Boom from 'boom';
 
-import Toys from 'toys';
 import { Readable } from 'stream';
+import IO from '../helpers/io';
 
 const isSupported = (mimetype: string) => ['image/jpeg', 'image/webp', 'image/png'].includes(mimetype);
 
@@ -24,11 +22,7 @@ module.exports = async (request: Request, h: ResponseToolkit) => {
   }
 
   const uuid = uuidv4();
-  const filepath = join('/tmp', uuid);
-
-  const writeStream = createWriteStream(filepath);
-  readStream.pipe(writeStream);
-  await Toys.stream(writeStream);
+  await IO.write(uuid, readStream);
 
   return {
     uuid,
