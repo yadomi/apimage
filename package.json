@@ -1,33 +1,42 @@
 {
-  "license": "GPL-3.0-or-later",
-  "scripts": {
-    "build": "$(yarn bin)/tsc",
-    "build:docker": "docker build -t yadomi/apimage:latest .",
-    "start": "node dist/",
-    "start:watch": "$(yarn bin)/nodemon dist/"
-  },
-  "version": "1.0.0",
-  "devDependencies": {
-    "@types/hapi": "^18.0.1",
-    "@types/jest": "^24.0.11",
-    "@types/node": "^11.11.3",
-    "@types/ramda": "^0.26.3",
-    "@types/sharp": "^0.21.3",
-    "jest": "^24.5.0",
-    "nodemon": "^1.18.10",
-    "supertest": "^4.0.2",
-    "ts-jest": "^24.0.0",
-    "typescript": "^3.3.3333"
-  },
-  "dependencies": {
-    "@types/uuid": "^3.4.4",
-    "boom": "^7.3.0",
-    "file-type": "^10.9.0",
-    "hapi": "^18.1.0",
-    "joi": "^14.3.1",
-    "ramda": "^0.26.1",
-    "sharp": "^0.21.3",
-    "toys": "^2.2.1",
-    "uuid": "^3.3.2"
-  }
+	"license": "GPL-3.0-or-later",
+	"scripts": {
+		"build": "$(yarn bin)/tsc",
+		"build:docker": "docker build -t yadomi/apimage:latest .",
+		"start": "node dist/",
+		"start:watch": "$(yarn bin)/nodemon dist/"
+	},
+	"version": "1.0.0",
+	"devDependencies": {
+		"@types/hapi": "^18.0.1",
+		"@types/jest": "^24.0.11",
+		"@types/node": "^11.11.3",
+		"@types/ramda": "^0.26.3",
+		"@types/sharp": "^0.21.3",
+		"jest": "^24.5.0",
+		"nodemon": "^1.18.10",
+		"supertest": "^4.0.2",
+		"ts-jest": "^24.0.0",
+		"typescript": "^3.3.3333"
+	},
+	"dependencies": {
+		"@types/mongodb": "^3.1.22",
+		"@types/uuid": "^3.4.4",
+		"boom": "^7.3.0",
+		"file-type": "^10.9.0",
+		"hapi": "^18.1.0",
+		"joi": "^14.3.1",
+		"mongodb": "^3.2.3",
+		"ramda": "^0.26.1",
+		"sharp": "^0.21.3",
+		"toys": "^2.2.1",
+		"uuid": "^3.3.2"
+	},
+	"prettier": {
+		"semi": false,
+		"printWidth": 120,
+		"tabWidth": 1,
+		"useTabs": true,
+		"parser": "typescript"
+	}
 }
