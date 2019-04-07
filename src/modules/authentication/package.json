@@ -1,0 +1,6 @@
+{
+    "name": "authentication",
+    "main": "./authentication.ts",
+    "version": "0.0.1"
+  }
+  
