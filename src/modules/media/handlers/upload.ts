@@ -4,7 +4,7 @@ import fileType from "file-type"
 import Boom from "boom"
 
 import { Readable } from "stream"
-import IO from "../helpers/io"
+import IO from "../../../helpers/io"
 
 const isSupported = (mimetype: string) => ["image/jpeg", "image/webp", "image/png"].includes(mimetype)
 

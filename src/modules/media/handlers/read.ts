@@ -1,13 +1,13 @@
-import { parse, validate } from "../helpers/query"
-import { getCacheKey } from "../helpers/cache"
+import { parse, validate } from "../../../helpers/query"
+import { getCacheKey } from "../../../helpers/cache"
 import { Request, ResponseToolkit } from "hapi"
 import Boom from "boom"
 import Sharp from "sharp"
 import { has } from "ramda"
 import cache from "memory-cache"
 import type from "file-type"
-import IO from "../helpers/io"
-import Config from "../config"
+import IO from "../../../helpers/io"
+import Config from "../../../config"
 
 module.exports = async (request: Request, h: ResponseToolkit) => {
 	const { query } = request.params
