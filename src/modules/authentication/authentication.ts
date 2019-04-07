@@ -19,7 +19,7 @@ const plugin: PluginBase<any> & PluginPackage = {
 						throw Boom.unauthorized("Invalid publicId")
 					}
 
-					return h.authenticated({ credentials: { user: { publicId } } })
+					return h.authenticated({ credentials: { user: account } })
 				}
 			}
 		})

@@ -12,7 +12,7 @@ import Config from "../../../config"
 module.exports = async (request: Request, h: ResponseToolkit) => {
 	const { query } = request.params
 	const [uuid, extension] = request.params.uuid.split(".")
-
+	console.log(request.pre)
 	console.time(uuid)
 
 	/**

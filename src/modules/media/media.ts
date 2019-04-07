@@ -9,6 +9,7 @@ const plugin: PluginBase<any> & PluginPackage = {
 			path: "/media/{publicId}/{query}/{uuid}",
 			handler: require("./handlers/read"),
 			options: {
+				pre: [{ method: require("./handlers/pre/quota").default, assign: "quota" }],
 				auth: {
 					strategies: ["public-id"]
 				},
